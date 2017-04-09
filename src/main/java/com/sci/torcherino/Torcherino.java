@@ -5,12 +5,12 @@ import com.sci.torcherino.init.ModRecipes;
 import com.sci.torcherino.proxy.CommonProxy;
 import com.sci.torcherino.tile.TileCompressedTorcherino;
 import com.sci.torcherino.tile.TileDoubleCompressedTorcherino;
+import com.sci.torcherino.tile.TileSupremeTorcherino;
 import com.sci.torcherino.tile.TileTorcherino;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.gen.structure.StructureVillagePieces;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -38,6 +38,7 @@ public final class Torcherino {
     public static boolean overPoweredRecipe;
     public static boolean compressedTorcherino;
     public static boolean doubleCompressedTorcherino;
+    public static boolean supremeTorcherino;
 
     private String[] blacklistedBlocks;
     private String[] blacklistedTiles;
@@ -61,6 +62,7 @@ public final class Torcherino {
             Torcherino.overPoweredRecipe = cfg.getBoolean("overPoweredRecipe", "general", true, "Is the recipe for Torcherino extremely OP?");
             Torcherino.compressedTorcherino = cfg.getBoolean("compressedTorcherino", "general", false, "Is the recipe for the Compressed Torcherino enabled?");
             Torcherino.doubleCompressedTorcherino = cfg.getBoolean("doubleCompressedTorcherino", "general", false, "Is the recipe for the Double Compressed Torcherino enabled? Only takes effect if Compressed Torcherinos are enabled.");
+            Torcherino.supremeTorcherino = cfg.getBoolean("supremeTorcherino", "general", false, "Is the recipe for the Supreme Torcherino enabled? Only takes effect if Double Compressed Torcherinos are enabled.");
 
             this.blacklistedBlocks = cfg.getStringList("blacklistedBlocks", "blacklist", new String[]{}, "modid:unlocalized");
             this.blacklistedTiles = cfg.getStringList("blacklistedTiles", "blacklist", new String[]{}, "Fully qualified class name");
@@ -82,10 +84,12 @@ public final class Torcherino {
         TorcherinoRegistry.blacklistBlock(ModBlocks.torcherino);
         TorcherinoRegistry.blacklistBlock(ModBlocks.compressedTorcherino);
         TorcherinoRegistry.blacklistBlock(ModBlocks.doubleCompressedTorcherino);
+        TorcherinoRegistry.blacklistBlock(ModBlocks.supremeTorcherino);
 
         TorcherinoRegistry.blacklistTile(TileTorcherino.class);
         TorcherinoRegistry.blacklistTile(TileCompressedTorcherino.class);
         TorcherinoRegistry.blacklistTile(TileDoubleCompressedTorcherino.class);
+        TorcherinoRegistry.blacklistTile(TileSupremeTorcherino.class);
 
         TorcherinoRegistry.blacklistBlock(Blocks.WATER);
         TorcherinoRegistry.blacklistBlock(Blocks.FLOWING_WATER);
