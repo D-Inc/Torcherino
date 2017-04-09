@@ -1,5 +1,6 @@
 package com.sci.torcherino.block;
 
+import com.sci.torcherino.Torcherino;
 import com.sci.torcherino.tile.TileSupremeTorcherino;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -12,6 +13,7 @@ public class BlockSupremeTorcherino extends BlockTorcherino
     public BlockSupremeTorcherino()
     {
         this.setUnlocalizedName("torcherino.supreme_torcherino");
+        setCreativeTab(Torcherino.taberino);
     }
 
     @Override

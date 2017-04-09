@@ -5,7 +5,9 @@ import com.sci.torcherino.init.ModRecipes;
 import com.sci.torcherino.proxy.CommonProxy;
 import com.sci.torcherino.tile.*;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
@@ -174,4 +176,13 @@ public final class Torcherino {
             System.out.println("Class not found: " + s + ", ignoring");
         }
     }
+
+    public static final CreativeTabs taberino = new CreativeTabs("Torcherino")
+    {
+        @Override
+        public Item getTabIconItem()
+        {
+            return Item.getItemFromBlock(ModBlocks.doubleCompressedTorcherino);
+        }
+    };
 }

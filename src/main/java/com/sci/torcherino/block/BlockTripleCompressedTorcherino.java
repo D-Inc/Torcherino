@@ -1,5 +1,6 @@
 package com.sci.torcherino.block;
 
+import com.sci.torcherino.Torcherino;
 import com.sci.torcherino.tile.TileTripleCompressedTorcherino;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -12,6 +13,7 @@ public class BlockTripleCompressedTorcherino extends BlockTorcherino
     public BlockTripleCompressedTorcherino()
     {
         this.setUnlocalizedName("torcherino.triple_compressed_torcherino");
+        setCreativeTab(Torcherino.taberino);
     }
 
     @Override

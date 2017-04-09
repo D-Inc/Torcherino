@@ -20,6 +20,7 @@ public class BlockTorcherino extends BlockTorch implements ITileEntityProvider {
     public BlockTorcherino() {
         this.setLightLevel(0.75f);
         this.setUnlocalizedName("torcherino.torcherino");
+        setCreativeTab(Torcherino.taberino);
     }
 
     @Override
