@@ -1,0 +1,37 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:torch_wall",
+    "textures": {
+      "torch": "torcherino:blocks/triple_compressed_torcherino"
+    },
+    "transform": "forge:default-item"
+  },
+  "variants": {
+    "facing": {
+      "up": {
+        "model": "minecraft:torch"
+      },
+      "north": {
+        "y": 270
+      },
+      "east": {
+        "y": 0
+      },
+      "south": {
+        "y": 90
+      },
+      "west": {
+        "y": 180
+      }
+    },
+    "inventory": [
+      {
+        "model": "builtin/generated",
+        "textures": {
+          "layer0": "torcherino:blocks/triple_compressed_torcherino"
+        }
+      }
+    ]
+  }
+}

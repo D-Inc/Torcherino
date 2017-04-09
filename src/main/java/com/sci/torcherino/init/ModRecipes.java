@@ -22,9 +22,14 @@ public final class ModRecipes {
             {
                 GameRegistry.addRecipe(new ItemStack(ModBlocks.doubleCompressedTorcherino), new Object[]{"ttt", "ttt", "ttt", 't', ModBlocks.compressedTorcherino});
 
-                if (Torcherino.supremeTorcherino)
+                if (Torcherino.tripleCompressedTorcherino)
                 {
-                    GameRegistry.addRecipe(new ItemStack(ModBlocks.supremeTorcherino), new Object[]{"ttt", "ttt", "ttt", 't', ModBlocks.doubleCompressedTorcherino});
+                    GameRegistry.addRecipe(new ItemStack(ModBlocks.tripleCompressedTorcherino), new Object[]{"ttt", "ttt", "ttt", 't', ModBlocks.doubleCompressedTorcherino});
+
+                    if (Torcherino.supremeTorcherino)
+                    {
+                        GameRegistry.addRecipe(new ItemStack(ModBlocks.supremeTorcherino), new Object[]{"ttt", "ttt", "ttt", 't', ModBlocks.tripleCompressedTorcherino});
+                    }
                 }
             }
         }

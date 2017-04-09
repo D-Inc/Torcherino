@@ -1,13 +1,7 @@
 package com.sci.torcherino.init;
 
-import com.sci.torcherino.block.BlockCompressedTorcherino;
-import com.sci.torcherino.block.BlockDoubleCompresedTorcherino;
-import com.sci.torcherino.block.BlockSupremeTorcherino;
-import com.sci.torcherino.block.BlockTorcherino;
-import com.sci.torcherino.tile.TileCompressedTorcherino;
-import com.sci.torcherino.tile.TileDoubleCompressedTorcherino;
-import com.sci.torcherino.tile.TileSupremeTorcherino;
-import com.sci.torcherino.tile.TileTorcherino;
+import com.sci.torcherino.block.*;
+import com.sci.torcherino.tile.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,6 +18,7 @@ public final class ModBlocks {
     public static BlockTorcherino torcherino;
     public static BlockTorcherino compressedTorcherino;
     public static BlockTorcherino doubleCompressedTorcherino;
+    public static BlockTorcherino tripleCompressedTorcherino;
     public static BlockTorcherino supremeTorcherino;
 
     private static Map<String, ItemBlock> remap = new HashMap<String, ItemBlock>();
@@ -32,26 +27,31 @@ public final class ModBlocks {
         ModBlocks.torcherino = new BlockTorcherino();
         ModBlocks.compressedTorcherino = new BlockCompressedTorcherino();
         ModBlocks.doubleCompressedTorcherino = new BlockDoubleCompresedTorcherino();
+        ModBlocks.tripleCompressedTorcherino = new BlockTripleCompressedTorcherino();
         ModBlocks.supremeTorcherino = new BlockSupremeTorcherino();
 
         GameRegistry.register(ModBlocks.torcherino.setRegistryName("BlockTorcherino"));
         GameRegistry.register(ModBlocks.compressedTorcherino.setRegistryName("BlockCompressedTorcherino"));
         GameRegistry.register(ModBlocks.doubleCompressedTorcherino.setRegistryName("BlockDoubleCompressedTorcherino"));
+        GameRegistry.register(ModBlocks.tripleCompressedTorcherino.setRegistryName("BlockTripleCompressedTorcherino"));
         GameRegistry.register(ModBlocks.supremeTorcherino.setRegistryName("BlockSupremeTorcherino"));
 
         GameRegistry.register(new ItemBlock(ModBlocks.torcherino).setRegistryName(ModBlocks.torcherino.getRegistryName()));
         GameRegistry.register(new ItemBlock(ModBlocks.compressedTorcherino).setRegistryName(ModBlocks.compressedTorcherino.getRegistryName()));
         GameRegistry.register(new ItemBlock(ModBlocks.doubleCompressedTorcherino).setRegistryName(ModBlocks.doubleCompressedTorcherino.getRegistryName()));
+        GameRegistry.register(new ItemBlock(ModBlocks.tripleCompressedTorcherino).setRegistryName(ModBlocks.tripleCompressedTorcherino.getRegistryName()));
         GameRegistry.register(new ItemBlock(ModBlocks.supremeTorcherino).setRegistryName(ModBlocks.supremeTorcherino.getRegistryName()));
 
         GameRegistry.registerTileEntity(TileTorcherino.class, "torcherino_tile");
         GameRegistry.registerTileEntity(TileCompressedTorcherino.class, "compressed_torcherino_tile");
         GameRegistry.registerTileEntity(TileDoubleCompressedTorcherino.class, "double_compressed_torcherino_tile");
+        GameRegistry.registerTileEntity(TileTripleCompressedTorcherino.class, "triple_compressed_torcherino_tile");
         GameRegistry.registerTileEntity(TileSupremeTorcherino.class, "supreme_torcherino_tile");
 
         ModBlocks.remap.put("torcherino:tile.torcherino", (ItemBlock) Item.getItemFromBlock(ModBlocks.torcherino));
         ModBlocks.remap.put("torcherino:tile.compressed_torcherino", (ItemBlock) Item.getItemFromBlock(ModBlocks.compressedTorcherino));
         ModBlocks.remap.put("torcherino:tile.double_compressed_torcherino", (ItemBlock) Item.getItemFromBlock(ModBlocks.doubleCompressedTorcherino));
+        ModBlocks.remap.put("torcherino:tile.triple_compressed_torcherino", (ItemBlock) Item.getItemFromBlock(ModBlocks.tripleCompressedTorcherino));
         ModBlocks.remap.put("torcherino:tile.supreme_torcherino", (ItemBlock) Item.getItemFromBlock(ModBlocks.supremeTorcherino));
     }
 
@@ -59,6 +59,7 @@ public final class ModBlocks {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.torcherino), 0, new ModelResourceLocation(new ResourceLocation("torcherino", "BlockTorcherino"), "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.compressedTorcherino), 0, new ModelResourceLocation(new ResourceLocation("torcherino", "BlockCompressedTorcherino"), "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.doubleCompressedTorcherino), 0, new ModelResourceLocation(new ResourceLocation("torcherino", "BlockDoubleCompressedTorcherino"), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.tripleCompressedTorcherino), 0, new ModelResourceLocation(new ResourceLocation("torcherino", "BlockTripleCompressedTorcherino"), "inventory"));
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.supremeTorcherino), 0, new ModelResourceLocation(new ResourceLocation("torcherino", "BlockSupremeTorcherino"), "inventory"));
     }
 
