@@ -12,7 +12,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "4.2.1s"
+version = "4.2.2s"
 group= "com.sci.torcherino"
 archivesBaseName = "Treelarrino"
 
