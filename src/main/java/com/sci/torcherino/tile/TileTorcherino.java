@@ -20,7 +20,7 @@ import java.util.Random;
 @Optional.Interface(iface = "cofh.api.energy.IEnergyHandler", modid = Props.COFH_CORE)
 public class TileTorcherino extends TileEntity implements IEnergyHandler
 {
-    private static final String[] MODES = new String[]{"Stopped", "Radius: +1, Area: 3x3x3", "Radius: +2, Area: 5x3x5", "Radius: +3, Area: 7x3x7", "Radius: +4, Area: 9x3x9"};
+    private static final String[] MODES = new String[]{""Radius: +.5, Area: 1x3x1"", "Radius: +1, Area: 3x3x3", "Radius: +2, Area: 5x3x5", "Radius: +3, Area: 7x3x7", "Radius: +4, Area: 9x3x9", "Stopped"};
     private static final int SPEEDS = 4;
 
     private static final int MAX_ENERGY_STORED = 1024;
@@ -49,7 +49,7 @@ public class TileTorcherino extends TileEntity implements IEnergyHandler
     public TileTorcherino(final boolean requiredRedstoneState)
     {
         this.requiredRedstoneState = requiredRedstoneState;
-        this.cachedMode = -1;
+        this.cachedMode = 6;
         this.rand = new Random();
     }
 
@@ -64,7 +64,7 @@ public class TileTorcherino extends TileEntity implements IEnergyHandler
         if (this.worldObj.isRemote)
             return;
 
-        if (this.poweredByRedstone != this.requiredRedstoneState || this.mode == 0 || this.speed == 0)
+        if (this.poweredByRedstone != this.requiredRedstoneState || this.mode == 5 || this.speed == 0)
             return;
 
         if (Torcherino.useRF && this.redstoneFlux <= 1)
