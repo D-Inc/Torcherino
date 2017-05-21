@@ -20,7 +20,7 @@ import java.util.Random;
 @Optional.Interface(iface = "cofh.api.energy.IEnergyHandler", modid = Props.COFH_CORE)
 public class TileTorcherino extends TileEntity implements IEnergyHandler
 {
-    private static final String[] MODES = new String[]{""Radius: +.5, Area: 1x3x1"", "Radius: +1, Area: 3x3x3", "Radius: +2, Area: 5x3x5", "Radius: +3, Area: 7x3x7", "Radius: +4, Area: 9x3x9", "Stopped"};
+    private static final String[] MODES = new String[]{"Radius: +.5, Area: 1x3x1", "Radius: +1, Area: 3x3x3", "Radius: +2, Area: 5x3x5", "Radius: +3, Area: 7x3x7", "Radius: +4, Area: 9x3x9", "Stopped"};
     private static final int SPEEDS = 4;
 
     private static final int MAX_ENERGY_STORED = 1024;
