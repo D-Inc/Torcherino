@@ -1,6 +1,5 @@
 package com.sci.torcherino.tile;
 
-import cofh.api.energy.IEnergyHandler;
 import com.sci.torcherino.Torcherino;
 import com.sci.torcherino.TorcherinoRegistry;
 import com.sci.torcherino.lib.Props;
@@ -8,7 +7,6 @@ import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.BlockFluidBase;
 
 import java.util.Random;
@@ -18,7 +16,7 @@ import java.util.Random;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 @Optional.Interface(iface = "cofh.api.energy.IEnergyHandler", modid = Props.COFH_CORE)
-public class TileTorcherino extends TileEntity implements IEnergyHandler
+public class TileTorcherino extends TileEntity
 {
     private static final String[] MODES = new String[]{"Radius: +.5, Area: 1x3x1", "Radius: +1, Area: 3x3x3", "Radius: +2, Area: 5x3x5", "Radius: +3, Area: 7x3x7", "Radius: +4, Area: 9x3x9", "Stopped"};
     private static final int SPEEDS = 4;
@@ -49,7 +47,8 @@ public class TileTorcherino extends TileEntity implements IEnergyHandler
     public TileTorcherino(final boolean requiredRedstoneState)
     {
         this.requiredRedstoneState = requiredRedstoneState;
-        this.cachedMode = 6;
+        this.cachedMode = 5;
+        this.mode=5;
         this.rand = new Random();
     }
 
@@ -186,7 +185,10 @@ public class TileTorcherino extends TileEntity implements IEnergyHandler
         else
         {
             if (this.mode < MODES.length - 1)
+            {
                 this.mode++;
+                System.out.println(mode);
+            }
             else
                 this.mode = 0;
         }
@@ -222,59 +224,5 @@ public class TileTorcherino extends TileEntity implements IEnergyHandler
         this.mode = tag.getByte("Mode");
         this.poweredByRedstone = tag.getBoolean("PoweredByRedstone");
         this.redstoneFlux = tag.getInteger("EnergyStored");
-    }
-
-    @Override
-    @Optional.Method(modid = Props.COFH_CORE)
-    public final int receiveEnergy(final ForgeDirection from, final int maxReceive, final boolean simulate)
-    {
-        if (!Torcherino.useRF)
-            return 0;
-
-        final int energyReceived = Math.min(TileTorcherino.MAX_ENERGY_STORED - this.redstoneFlux, maxReceive);
-
-        if (!simulate)
-        {
-            this.redstoneFlux += energyReceived;
-        }
-
-        return energyReceived;
-    }
-
-    @Override
-    @Optional.Method(modid = Props.COFH_CORE)
-    public final int extractEnergy(final ForgeDirection from, final int maxExtract, final boolean simulate)
-    {
-        return 0;
-    }
-
-    @Override
-    @Optional.Method(modid = Props.COFH_CORE)
-    public final int getEnergyStored(final ForgeDirection from)
-    {
-        if (!Torcherino.useRF)
-            return 0;
-
-        return this.redstoneFlux;
-    }
-
-    @Override
-    @Optional.Method(modid = Props.COFH_CORE)
-    public final int getMaxEnergyStored(final ForgeDirection from)
-    {
-        if (!Torcherino.useRF)
-            return 0;
-
-        return TileTorcherino.MAX_ENERGY_STORED;
-    }
-
-    @Override
-    @Optional.Method(modid = Props.COFH_CORE)
-    public final boolean canConnectEnergy(final ForgeDirection from)
-    {
-        if (!Torcherino.useRF)
-            return false;
-
-        return true;
     }
 }

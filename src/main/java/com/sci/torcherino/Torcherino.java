@@ -73,9 +73,9 @@ public class Torcherino implements IUpdatableMod
             cfg.load();
 
             Torcherino.animatedTextures = cfg.getBoolean("animatedTextures", "visual", true, "Should Torcherino use animated textures?");
-            Torcherino.compressedTorcherino = cfg.getBoolean("compressedTorcherino", "general", false, "Are compressed Torcherinos enabled?");
-            Torcherino.doubleCompressedTorcherino = cfg.getBoolean("doubleCompressedTorcherin", "general", false, "Are double compressed Torcherinos enabled? Automatically enables compressed Torcherinos.");
-            Torcherino.overPoweredRecipe = cfg.getBoolean("overPoweredRecipe", "general", true, "Is the recipe for Torcherino extremely OP?");
+            Torcherino.compressedTorcherino = cfg.getBoolean("compressedTorcherino", "general", true, "Are compressed Torcherinos enabled?");
+            Torcherino.doubleCompressedTorcherino = cfg.getBoolean("doubleCompressedTorcherin", "general", true, "Are double compressed Torcherinos enabled? Automatically enables compressed Torcherinos.");
+            Torcherino.overPoweredRecipe = cfg.getBoolean("overPoweredRecipe", "general", false, "Is the recipe for Torcherino extremely OP?");
             Torcherino.logPlacement = cfg.getBoolean("logPlacement", "general", false, "(For Server Owners) Is it logged when someone places a Torcherino?");
             Torcherino.useRF = cfg.getBoolean("useRF", "general", false, "Do Torcherinos require Redstone Flux to run?");
 
